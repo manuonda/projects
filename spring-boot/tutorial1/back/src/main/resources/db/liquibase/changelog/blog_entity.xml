@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+        <property name="autoIncrement" value="true"/> 
+    <changeSet id="202202082237"  author="dgarcia">
+        <createTable  tableName="blog">
+            <column  name="id"  type="int">
+                <constraints  primaryKey="true"  nullable="false"/>
+            </column>
+            <column  name="blog_name"  type="varchar(50)">
+                <constraints  nullable="false"/>
+            </column>
+             <column  name="description"  type="(50)">
+             </column>
+		<column  name="active"  type="boolean"  defaultValueBoolean="true"/>
+        </createTable>
+           </changeSet>
+        
+        
+         <!-- Added the entity audit columns -->
+       <changeSet id="20220208175710-audit-1" author="jhipster-entity-audit">
+        <addColumn tableName="blog">
+            <column name="created_by" type="varchar(50)" defaultValue="system">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="varchar(50)"/>
+            <column name="last_modified_date" type="timestamp"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>
+
+            

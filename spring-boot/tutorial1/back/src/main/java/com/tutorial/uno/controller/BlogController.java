@@ -25,7 +25,7 @@ public class BlogController {
 		
 		Blog blogEntity = blogService.add(blog);
 		
-		return ResponseEntity.ok().body(blog);
+		return ResponseEntity.ok().body(blogEntity);
 	}
 	
 	@PutMapping("/update/{id}")

@@ -3,10 +3,13 @@ package com.tutorial.uno.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.tutorial.uno.model.Blog;
 import com.tutorial.uno.repository.BlogRepository;
 
+
+@Service
 public class BlogServiceImpl implements BlogService {
 
 	@Autowired
@@ -14,8 +17,7 @@ public class BlogServiceImpl implements BlogService {
 	
 	@Override
 	public Blog add(Blog blog) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.save(blog);
 	}
 
 	@Override
