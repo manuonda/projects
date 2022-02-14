@@ -1,6 +1,7 @@
 package com.tutorial.uno.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,26 +23,24 @@ public class BlogServiceImpl implements BlogService {
 
 	@Override
 	public List<Blog> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findAll();
 	}
 
 	@Override
 	public Blog update(Blog blog) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.save(blog);
 	}
 
 	@Override
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
-
+	   Optional<Blog> optional = repository.findById(id);
+       repository.delete(optional.get());
 	}
 
 	@Override
 	public Blog getBlogById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<Blog> optional =  repository.findById(id);
+		return optional.get();
 	}
 
 }

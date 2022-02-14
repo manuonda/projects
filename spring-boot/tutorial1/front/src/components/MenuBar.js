@@ -7,7 +7,9 @@ export const MenuBar = () => {
             <nav className="navbar navbar-expand-lg navbar-dar bg-bg">
                 <div className="container-fluid">
                     <Link className="navbar-brand font-ch"  to="/">BLOG APP</Link>
+                    <Link className="navbar-brand font-ch" to="/create">Create Blog</Link>
                 </div>
+            
             </nav>
         </div>
     )
